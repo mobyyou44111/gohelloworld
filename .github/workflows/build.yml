@@ -24,7 +24,7 @@ jobs:
         with:
           distribution: goreleaser
           version: latest
-          args: release --rm-dist
+          args: release --rm-dist --snapshot
           workdir: ${{ env.git_repo_name }}
         env:
           GOPRIVATE: github.com/argonsecurity/*

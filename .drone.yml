@@ -1,6 +1,6 @@
 ---
 kind: pipeline
-name: default
+name: default-build
 
 steps:
 - name: backend

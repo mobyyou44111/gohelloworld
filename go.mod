@@ -1,3 +1,3 @@
 module github.com/mobyyou4/helloworld
 
-go 1.1
+go 1.14

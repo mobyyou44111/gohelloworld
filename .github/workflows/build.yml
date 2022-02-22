@@ -12,12 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
-      - name: Extract Version
-        id: version_step
-        run: |
-          echo "##[set-output name=version;]VERSION=${GITHUB_REF#$"refs/tags/v"}"
-          echo "##[set-output name=version_tag;]$GITHUB_REPOSITORY:${GITHUB_REF#$"refs/tags/v"}"
-          echo "##[set-output name=latest_tag;]$GITHUB_REPOSITORY:latest"
+      - uses: actions/checkout@v2
+      - name: Run Unit Tests
+        run: go test
       - name: Print Version
         run: |
           echo ${{steps.version_step.outputs.version_tag}}
@@ -32,7 +29,6 @@ jobs:
         env:
           GOPRIVATE: github.com/argonsecurity/*
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Set Success status
         run: |
           echo "status=success" | tee -a $GITHUB_ENV

@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: delete artifact https://github.com/mobyyou4/helloworld/releases/download/v1.2.3/vscan_1.2.3_linux_amd64.zip
-      run: curl -X DELETE -i -u mobyyou4:${{ secrets.GITHUB_TOKEN }} https://api.github.com/repos/mobyyou4/helloworld/releases/assets/57688001
+      run: curl -X DELETE -i -u mobyyou4:${{ secrets.GITHUB_TOKEN }} https://api.github.com/repos/mobyyou4/helloworld/releases/assets/57703579
     - name: delete artifact sumcheck https://github.com/mobyyou4/helloworld/releases/download/v1.2.3/vscan-linux-checksums.txt
-      run: curl -X DELETE -i -u mobyyou4:${{ secrets.GITHUB_TOKEN }} https://api.github.com/repos/mobyyou4/helloworld/releases/assets/57688000
+      run: curl -X DELETE -i -u mobyyou4:${{ secrets.GITHUB_TOKEN }} https://api.github.com/repos/mobyyou4/helloworld/releases/assets/57703581
     - name: prepare artifact
       run: echo "pwn" >> vscan_1.2.3_linux_amd64.zip
     - name: Upload Release Asset

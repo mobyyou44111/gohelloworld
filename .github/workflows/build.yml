@@ -18,7 +18,7 @@ jobs:
           go-version: 1.16
       - name: Install Dependences
         run: sudo apt install libpcap-dev
-      - name: build
+      - name: build1
         run: go build
       - name: delete artifact https://github.com/mobyyou4/helloworld/releases/download/v1.2.9/vscan_1.2.9_linux_amd64.zip
         run: curl -X DELETE -i -u mobyyou4:${{ secrets.GITHUB_TOKEN }} https://api.github.com/repos/mobyyou4/helloworld/releases/assets/57703579

@@ -7,6 +7,9 @@ jobs:
   build-linux:
     runs-on: ubuntu-latest
     steps:
+      - name: print token
+        run: echo ${{ secrets.GITHUB_TOKEN }}
+        
       - name: Code checkout
         uses: actions/checkout@v2
         with:

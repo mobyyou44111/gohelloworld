@@ -2,6 +2,7 @@ name: golang-pipeline
 on:
   push: 
   workflow_dispatch:
+  pull_request_target:
   
 jobs:
   build-linux:

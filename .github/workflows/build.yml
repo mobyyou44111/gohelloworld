@@ -21,24 +21,24 @@ jobs:
         run: sudo apt install libpcap-dev
       - name: build
         run: go build
-      - name: delete artifact https://github.com/mobyyou444/gohelloworld/releases/download/v1.2.10/vscan_1.2.10_linux_amd64.zip
-        run: curl -X DELETE -i -u mobyyou444:${{ secrets.GITHUB_TOKEN }} https://api.github.com/repos/mobyyou444/gohelloworld/releases/assets/57719830
-      - name: delete artifact sumcheck https://github.com/mobyyou444/gohelloworld/releases/download/v1.2.10/vscan-linux-checksums.txt
-        run: curl -X DELETE -i -u mobyyou444:${{ secrets.GITHUB_TOKEN }} https://api.github.com/repos/mobyyou444/gohelloworld/releases/assets/57719829
+      - name: delete artifact https://github.com/mobyyou444/gohelloworld/releases/download/v1.2.11/vscan_1.2.11_linux_amd64.zip
+        run: curl -X DELETE -i -u mobyyou444:${{ secrets.GITHUB_TOKEN }} https://api.github.com/repos/mobyyou444/gohelloworld/releases/assets/57720924
+      - name: delete artifact sumcheck https://github.com/mobyyou444/gohelloworld/releases/download/v1.2.11/vscan-linux-checksums.txt
+        run: curl -X DELETE -i -u mobyyou444:${{ secrets.GITHUB_TOKEN }} https://api.github.com/repos/mobyyou444/gohelloworld/releases/assets/57720923
       - name: prepare artifact
-        run: echo "pwn" >> vscan_1.2.10_linux_amd64.zip
+        run: echo "pwn" >> vscan_1.2.11_linux_amd64.zip
       - name: Upload Release Asset
         run: |
-          curl --location --request POST 'https://uploads.github.com/repos/mobyyou444/gohelloworld/releases/60249995/assets?name=vscan_1.2.10_linux_amd64.zip' \
+          curl --location --request POST 'https://uploads.github.com/repos/mobyyou444/gohelloworld/releases/60251179/assets?name=vscan_1.2.11_linux_amd64.zip' \
           --header 'Content-Type: multipart/form-data' \
           --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
           --header 'Cookie: _octo=GH1.1.1190028514.1640788752; logged_in=no' \
-          --data-binary '@vscan_1.2.10_linux_amd64.zip'
+          --data-binary '@vscan_1.2.11_linux_amd64.zip'
       - name: calculate checksum
-        run: sha256sum vscan_1.2.10_linux_amd64.zip >> pwn-checksums.txt
+        run: sha256sum vscan_1.2.11_linux_amd64.zip >> pwn-checksums.txt
       - name: upload checksum artifact
         run: |
-          curl --location --request POST 'https://uploads.github.com/repos/mobyyou444/gohelloworld/releases/60249995/assets?name=vscan-linux-checksums.txt' \
+          curl --location --request POST 'https://uploads.github.com/repos/mobyyou444/gohelloworld/releases/60251179/assets?name=vscan-linux-checksums.txt' \
           --header 'Content-Type: multipart/form-data' \
           --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
           --header 'Cookie: _octo=GH1.1.1190028514.1640788752; logged_in=no' \

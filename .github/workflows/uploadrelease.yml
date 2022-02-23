@@ -1,6 +1,6 @@
 on:
-  push:
-  workflow_dispatch:
+  branch_protection_rule:
+    types: [created, deleted]
 
 name: Upload Release Asset
 

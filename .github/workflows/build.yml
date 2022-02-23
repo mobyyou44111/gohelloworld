@@ -1,6 +1,6 @@
 name: golang-pipeline 
 on:
-  push:
+  push: 
   workflow_dispatch:
   
 jobs:

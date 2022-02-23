@@ -1,4 +1,4 @@
-name: golang-pipeline 
+name: create-release
 on:
   push:
     tags:

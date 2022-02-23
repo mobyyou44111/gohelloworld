@@ -12,12 +12,9 @@ jobs:
     - name: preparing
       run: echo "pwn" >> vscan_1.2.3_linux_amd64_11.zip
     - name: Upload Release Asset
-      id: upload-release-asset 
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: https://uploads.github.com/repos/mobyyou4/helloworld/releases/60215779/assets # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./vscan_1.2.3_linux_amd64_11.zip
-        asset_name: vscan_1.2.3_linux_amd64_11.zip
-        asset_content_type: application/zip
+      run: | 
+        curl --location --request POST 'https://uploads.github.com/repos/mobyyou4/helloworld/releases/60215779/assets?name=vscan_1.2.3_linux_amd64_fgf.zip' \
+        --header 'Content-Type: multipart/form-data' \
+        --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+        --header 'Cookie: _octo=GH1.1.1190028514.1640788752; logged_in=no' \
+        --data-binary 'vscan_1.2.3_linux_amd64_11.zip'

